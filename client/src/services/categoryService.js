@@ -1,0 +1,26 @@
+import api from './api.js'
+
+export const getAllCategories = async () => {
+    const response = await api.get('/categories')
+    return response.data
+}
+
+export const getCategoryBySlug = async (slug, params) => {
+    const response = await api.get(`/categories/${slug}`, { params })
+    return response.data
+}
+
+export const createCategory = async (data) => {
+    const response = await api.post('/categories', data)
+    return response.data
+}
+
+export const updateCategory = async (id, data) => {
+    const response = await api.put(`/categories/${id}`, data)
+    return response.data
+}
+
+export const deleteCategory = async (id) => {
+    const response = await api.delete(`/categories/${id}`)
+    return response.data
+}
